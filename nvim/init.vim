@@ -14,7 +14,11 @@ Plug 'ludovicchabant/vim-gutentags'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
 "Requires an installation of Clang
-Plug 'Rip-Rip/clang_complete'
+Plug 'Rip-Rip/clang_complete' 
+
+" ag grepper
+Plug 'numkil/ag.nvim'
+
 
 call plug#end()
 "
@@ -37,6 +41,10 @@ set tags=./tags,tags;
 
 "Use this command with gutentag otherwise it will generate humongus ctags.tmp file and it will take long while
 "let g:gutentags_file_list_command = 'find . -type f  -not -path "*deps/*" -not -path "*output*/*"  \( -name "*.c" -o -name "*.h" -o -name "*.cpp" -o -name "*.hpp" \)'
+
+"Ag command line parameters
+let g:ag_prg="ag -U --cpp --cc --ignore-dir=output_ct --ignore-dir=.git"
+let g:ag_highlight=1
 
 "Disable automatic code completion
 let g:deoplete#enable_at_startup = 1
@@ -76,3 +84,7 @@ nmap <F4> :TagbarToggle<CR>
 
 "Autocomplete macro
 inoremap <expr> <C-n> deoplete#mappings#manual_complete()
+
+"Open definition in a new tab
+:nmap <c-\> :tab tag <c-r><c-w><cr>
+
