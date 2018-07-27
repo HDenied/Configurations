@@ -4,21 +4,30 @@
 
 call plug#begin('~/.local/share/nvim/plugged')
 
+"Nice layout
 Plug 'vim-airline/vim-airline'
 
+"Side pannel for code tree (functions, classes, variables,..)
 Plug 'majutsushi/tagbar'
-
+"
+"Ctag managers, reguires a ctag program
 Plug 'ludovicchabant/vim-gutentags'
 
-"Requires Python3 client interface to be set up
+"Requires Python3 client interface to be set up and a clang complete manager
+"(i.e. rip-rip)
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 
-"Requires an installation of Clang
+"Requires an installation of Clang for completion
 Plug 'Rip-Rip/clang_complete' 
 
-" ag grepper
+"ag grepper
 Plug 'numkil/ag.nvim'
 
+" Syntax highlighter
+Plug 'KeitaNakamura/highlighter.nvim', { 'do': ':UpdateRemotePlugins' }
+
+" Buffer manager
+Plug 'qpkorr/vim-bufkill'
 
 call plug#end()
 "
